@@ -7,3 +7,12 @@
     </button>
   </p>
 </div>
+<app-countdown [seconds]="25"
+               (complete)="onCountdownCompleted()"
+               (progress)="timeout = $event">
+</app-countdown>
+<p *ngIf="timeout < 10">
+  Beware! Only
+  <strong>{{timeout}} seconds</strong>
+  left
+</p>

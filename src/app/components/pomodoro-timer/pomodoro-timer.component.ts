@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Directive, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pomodoro-timer',
@@ -11,10 +11,14 @@ export class PomodoroTimerComponent implements OnInit {
   public seconds: number;
   private isPaused: boolean;
   public buttonLabel: string;
+  public timeout: number;
 
   constructor() {
     this.resetPomodoro();
     setInterval(() => this.tick(), 1000);
+  }
+
+  ngOnInit() {
   }
 
   private resetPomodoro(): void {
@@ -44,7 +48,8 @@ export class PomodoroTimerComponent implements OnInit {
     }
   }
 
-  ngOnInit() {
+  public onCountdownCompleted(): void {
+    alert('Time up!');
   }
 
 }
