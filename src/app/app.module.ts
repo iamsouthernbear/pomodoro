@@ -7,13 +7,15 @@ import { CountdownComponent } from './components/countdown/countdown.component';
 import { PomodoroTasksComponent } from './components/pomodoro-tasks/pomodoro-tasks.component';
 
 import { TaskService } from './services/task.service';
+import { TasksComponent } from './components/tasks/tasks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PomodoroTimerComponent,
     CountdownComponent,
-    PomodoroTasksComponent
+    PomodoroTasksComponent,
+    TasksComponent
   ],
   imports: [
     BrowserModule

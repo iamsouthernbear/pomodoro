@@ -4,7 +4,7 @@ import { Task } from '../models/task';
 @Injectable()
 export class TaskService {
 
-  // public taskStore: Task[];
+  public taskStore: Task[];
   public tasks = [
     {
       name: 'Code an HTML Table',
@@ -30,12 +30,14 @@ export class TaskService {
 
   constructor() { }
 
-  public taskStore = this.tasks.map(task => {
-    return {
-      name: task.name,
-      deadline: new Date(task.deadline),
-      queued: false,
-      pomodorosRequired: task.pomodorosRequired
-    };
-  });
+  public getTasks(): void {
+    this.taskStore = this.tasks.map(task => {
+      return {
+        name: task.name,
+        deadline: new Date(task.deadline),
+        queued: false,
+        pomodorosRequired: task.pomodorosRequired
+      };
+    });
+  }
 }

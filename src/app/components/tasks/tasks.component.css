@@ -1,0 +1,17 @@
+h3, p {
+  text-align: center;
+}
+
+table {
+  cursor: pointer;
+  margin: auto;
+  max-width: 760px;
+}
+
+.btn {
+  outline: none !important;
+}
+
+.btn-default:focus {
+  background-color: unset !important;
+}
