@@ -11,6 +11,12 @@ export class TasksComponent implements OnInit {
 
   public today: Date;
   public tasks: Task[];
+  public queuedPomodoros: number;
+  queueHeaderMapping: any = {
+    '=0': 'No pomodoros',
+    '=1': 'One pomodoro',
+    'other': '# pomodoros'
+  }
 
   constructor(private _tasksService: TaskService) { }
 
@@ -18,10 +24,20 @@ export class TasksComponent implements OnInit {
     this._tasksService.getTasks();
     this.tasks = this._tasksService.taskStore;
     this.today = new Date();
+    this.updateQueuedPomodoros();
   }
 
   public toggleTask(task: Task): void {
     task.queued = !task.queued;
+    this.updateQueuedPomodoros();
+  }
+
+  private updateQueuedPomodoros(): void {
+    this.queuedPomodoros = this.tasks
+      .filter((task: Task) => task.queued)
+      .reduce((pomodoros: number, queuedTask: Task) => {
+        return pomodoros + queuedTask.pomodorosRequired;
+      }, 0);
   }
 
 }
