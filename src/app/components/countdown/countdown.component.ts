@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-countdown',
@@ -8,9 +8,9 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class CountdownComponent implements OnInit {
 
   @Input() seconds: number;
-  public intervalId: any;
   @Output() complete: EventEmitter<any> = new EventEmitter();
   @Output() progress: EventEmitter<number> = new EventEmitter();
+  public intervalId: any;
 
   constructor() {
     this.intervalId = setInterval(() => this.tick(), 1000);
