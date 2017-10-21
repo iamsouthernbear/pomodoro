@@ -6,9 +6,19 @@
         {{ queuedPomodoros | i18nPlural:queueHeaderMapping }}
         for today
         <span class="small" *ngIf="queuedPomodoros > 0">
-          (Estimated time: {{ queuedPomodoros * 25 }})
+          (Estimated time: {{ queuedPomodoros * 25 | formattedTime }})
         </span>
       </h3>
+      <p>
+        <span *ngFor="let queuedTask of tasks | queuedOnly: true">
+          <app-pomodoro-icons [task]="queuedTask"
+                              size="50"
+                              (mouseover)="tooltip.innerText = queuedTask.name"
+                              (mouseout)="tooltip.innerText = 'Mouse over for details'">
+          </app-pomodoro-icons>
+        </span>
+      </p>
+      <p #tooltip [hidden]="queuedPomodoros === 0">Mouse over for details</p>
     </div>
     <h4>Task Backlog</h4>
     <table class="table">
@@ -42,15 +52,15 @@
                     class="btn btn-default btn-xs"
                     (click)="toggleTask(task)"
                     [ngSwitch]="task.queued">
-              <span *ngSwitchCase="false">
+              <span class="table-btn" *ngSwitchCase="false">
                 <i class="glyphicon glyphicon-plus-sign"></i>
                 Add
               </span>
-              <span *ngSwitchCase="true">
+              <span class="table-btn" *ngSwitchCase="true">
                 <i class="glyphicon glyphicon-minus-sign"></i>
                 Remove
               </span>
-              <span *ngSwitchDefault>
+              <span class="table-btn" *ngSwitchDefault>
                 <i class="glyphicon glyphicon-plus-sign"></i>
                 Add
               </span>

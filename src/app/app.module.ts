@@ -8,6 +8,9 @@ import { PomodoroTasksComponent } from './components/pomodoro-tasks/pomodoro-tas
 
 import { TaskService } from './services/task.service';
 import { TasksComponent } from './components/tasks/tasks.component';
+import { PomodoroIconsComponent } from './components/pomodoro-icons/pomodoro-icons.component';
+import { FormattedTimePipe } from './pipes/formatted-time.pipe';
+import { QueuedOnlyPipe } from './pipes/queued-only.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { TasksComponent } from './components/tasks/tasks.component';
     PomodoroTimerComponent,
     CountdownComponent,
     PomodoroTasksComponent,
-    TasksComponent
+    TasksComponent,
+    PomodoroIconsComponent,
+    FormattedTimePipe,
+    QueuedOnlyPipe
   ],
   imports: [
     BrowserModule

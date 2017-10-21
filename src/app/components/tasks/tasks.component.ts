@@ -16,20 +16,19 @@ export class TasksComponent implements OnInit {
     '=0': 'No pomodoros',
     '=1': 'One pomodoro',
     'other': '# pomodoros'
-  }
+  };
 
-  constructor(private _tasksService: TaskService) { }
-
-  ngOnInit() {
-    this._tasksService.getTasks();
+  constructor(private _tasksService: TaskService) {
     this.tasks = this._tasksService.taskStore;
     this.today = new Date();
     this.updateQueuedPomodoros();
   }
 
-  public toggleTask(task: Task): void {
-    task.queued = !task.queued;
-    this.updateQueuedPomodoros();
+  ngOnInit() {
+    // this._tasksService.getTasks();
+    // this.tasks = this._tasksService.taskStore;
+    // this.today = new Date();
+    // this.updateQueuedPomodoros();
   }
 
   private updateQueuedPomodoros(): void {
@@ -40,4 +39,8 @@ export class TasksComponent implements OnInit {
       }, 0);
   }
 
+  public toggleTask(task: Task): void {
+    task.queued = !task.queued;
+    this.updateQueuedPomodoros();
+  }
 }

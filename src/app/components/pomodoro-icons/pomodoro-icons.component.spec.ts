@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TasksComponent } from './tasks.component';
+import { PomodoroIconsComponent } from './pomodoro-icons.component';
 
-describe('TasksComponent', () => {
-  let component: TasksComponent;
-  let fixture: ComponentFixture<TasksComponent>;
+describe('PomodoroIconsComponent', () => {
+  let component: PomodoroIconsComponent;
+  let fixture: ComponentFixture<PomodoroIconsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TasksComponent ]
+      declarations: [ PomodoroIconsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TasksComponent);
+    fixture = TestBed.createComponent(PomodoroIconsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -3,9 +3,12 @@ h3, p {
 }
 
 table {
-  cursor: pointer;
   margin: auto;
   max-width: 760px;
+}
+
+.table-btn {
+  vertical-align: middle;
 }
 
 .btn {
