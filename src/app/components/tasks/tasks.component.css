@@ -1,0 +1,20 @@
+h3, p {
+  text-align: center;
+}
+
+table {
+  margin: auto;
+  max-width: 760px;
+}
+
+.table-btn {
+  vertical-align: middle;
+}
+
+.btn {
+  outline: none !important;
+}
+
+.btn-default:focus {
+  background-color: unset !important;
+}
