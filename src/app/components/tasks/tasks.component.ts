@@ -12,7 +12,7 @@ export class TasksComponent implements OnInit {
   public today: Date;
   public tasks: Task[];
   public queuedPomodoros: number;
-  queueHeaderMapping: any = {
+  public queueHeaderMapping: any = {
     '=0': 'No pomodoros',
     '=1': 'One pomodoro',
     'other': '# pomodoros'

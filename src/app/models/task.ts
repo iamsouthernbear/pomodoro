@@ -1,6 +1,7 @@
-export interface Task {
+import { Queueable } from './queueable';
+
+export interface Task extends Queueable {
   name: string;
   deadline: Date;
-  queued: boolean;
   pomodorosRequired: number;
 }

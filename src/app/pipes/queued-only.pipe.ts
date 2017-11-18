@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Task } from '../models/task';
+import { Queueable } from '../models/queueable';
 
 @Pipe({
   name: 'queuedOnly',
@@ -7,9 +7,9 @@ import { Task } from '../models/task';
 })
 export class QueuedOnlyPipe implements PipeTransform {
 
-  transform(tasks: Task[], ...args: any[]): Task[] {
-    return tasks.filter((task: Task) => {
-      return task.queued === args[0];
+  transform(queueableItems: Queueable[], ...args: any[]): Queueable[] {
+    return queueableItems.filter((queueableItem: Queueable) => {
+      return queueableItem.queued === args[0];
     });
   }
 }
