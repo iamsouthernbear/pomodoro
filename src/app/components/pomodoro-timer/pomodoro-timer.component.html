@@ -1,22 +1,3 @@
-<!--<div class="text-center">-->
-  <!--<img src="../../../assets/pomodoro.png" alt="pomodoro" />-->
-  <!--<h1>{{ minutes }}:{{ seconds | number: '2.0' }}</h1>-->
-  <!--<p>-->
-    <!--<button class="btn btn-danger" (click)="togglePaused()">-->
-      <!--{{ buttonLabel }}-->
-    <!--</button>-->
-  <!--</p>-->
-<!--</div>-->
-<!--<app-countdown [seconds]="25"-->
-               <!--(complete)="onCountdownCompleted()"-->
-               <!--(progress)="timeout = $event">-->
-<!--</app-countdown>-->
-<!--<p *ngIf="timeout < 10">-->
-  <!--Beware! Only-->
-  <!--<strong>{{timeout}} seconds</strong>-->
-  <!--left-->
-<!--</p>-->
-
 <div class="conteiner text-center">
   <img src="../../../assets/pomodoro.png" alt="pomodoro" >
   <app-countdown [seconds]="25"

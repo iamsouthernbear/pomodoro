@@ -1,4 +1,4 @@
-import { Queueable } from './queueable';
+import { Queueable } from '../shared';
 
 export interface Task extends Queueable {
   name: string;

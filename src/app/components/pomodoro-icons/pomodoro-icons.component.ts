@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Task} from '../../models/task';
+import { Task } from '../../shared/shared';
 
 @Component({
   selector: 'app-pomodoro-icons',
@@ -7,10 +7,9 @@ import {Task} from '../../models/task';
   styleUrls: ['./pomodoro-icons.component.css']
 })
 export class PomodoroIconsComponent implements OnInit {
-
   @Input() task: Task;
   @Input() size: number;
-  public icons = [];
+  public icons: Object[] = [];
 
   constructor() { }
 

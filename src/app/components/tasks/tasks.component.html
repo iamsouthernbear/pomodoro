@@ -1,20 +1,19 @@
 <div class="conteiner text-center">
-  <img src="/assets/pomodoro.png" alt="pomodoro">
+  <!--<img src="/assets/pomodoro.png" alt="pomodoro">-->
   <div class="container">
     <div>
       <h3>
-        {{ queuedPomodoros | i18nPlural:queueHeaderMapping }}
-        for today
+        {{ queuedPomodoros | i18nPlural:queueHeaderMapping }} for today
         <span class="small" *ngIf="queuedPomodoros > 0">
           (Estimated time: {{ queuedPomodoros * 25 | formattedTime }})
         </span>
       </h3>
       <p>
         <span *ngFor="let queuedTask of tasks | queuedOnly: true">
-          <app-pomodoro-icons [task]="queuedTask"
-                              size="50"
-                              (mouseover)="tooltip.innerText = queuedTask.name"
-                              (mouseout)="tooltip.innerText = 'Mouse over for details'">
+          <app-pomodoro-icons appTaskTooltip
+                              [task]="queuedTask"
+                              [taskTooltip]="tooltip"
+                              size="50">
           </app-pomodoro-icons>
         </span>
       </p>

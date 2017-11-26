@@ -8,11 +8,13 @@ import { PomodoroTasksComponent } from './components/pomodoro-tasks/pomodoro-tas
 import { TasksComponent } from './components/tasks/tasks.component';
 import { PomodoroIconsComponent } from './components/pomodoro-icons/pomodoro-icons.component';
 
-import { TaskService } from './services/task.service';
-import { SettingsService } from './services/settings.service';
+import { TaskService } from './shared/services/task.service';
+import { SettingsService } from './shared/services/settings.service';
 
-import { FormattedTimePipe } from './pipes/formatted-time.pipe';
-import { QueuedOnlyPipe } from './pipes/queued-only.pipe';
+import { FormattedTimePipe } from './shared/pipes/formatted-time.pipe';
+import { QueuedOnlyPipe } from './shared/pipes/queued-only.pipe';
+import { TimerWidgetComponent } from './components/timer-widget/timer-widget.component';
+import { TaskTooltipDirective } from './shared/directives/task-tooltip.directive';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { QueuedOnlyPipe } from './pipes/queued-only.pipe';
     TasksComponent,
     PomodoroIconsComponent,
     FormattedTimePipe,
-    QueuedOnlyPipe
+    QueuedOnlyPipe,
+    TimerWidgetComponent,
+    TaskTooltipDirective
   ],
   imports: [
     BrowserModule

@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Queueable } from '../models/queueable';
+import { Queueable } from '../shared';
 
 @Pipe({
   name: 'queuedOnly',

@@ -1,0 +1,9 @@
+<div class="text-center">
+  <img src="../../../assets/img/pomodoro.png" alt="pomodoro" />
+  <h1>{{ minutes }}:{{ seconds | number: '2.0' }}</h1>
+  <p>
+    <button class="btn btn-danger" (click)="togglePause()">
+      {{ buttonLabelKey | i18nSelect: buttonLabelsMap }}
+    </button>
+  </p>
+</div>

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from '../../models/task';
-import { TaskService } from '../../services/task.service';
+import {
+  TaskService,
+  SettingsService,
+  Task
+} from '../../shared/shared';
 
 @Component({
   selector: 'app-tasks',
@@ -12,23 +15,20 @@ export class TasksComponent implements OnInit {
   public today: Date;
   public tasks: Task[];
   public queuedPomodoros: number;
-  public queueHeaderMapping: any = {
-    '=0': 'No pomodoros',
-    '=1': 'One pomodoro',
-    'other': '# pomodoros'
-  };
+  public queueHeaderMapping: any;
+  public timerMinutes: number;
 
-  constructor(private _tasksService: TaskService) {
+  constructor(private _tasksService: TaskService,
+              private _settingService: SettingsService) {
+
     this.tasks = this._tasksService.taskStore;
     this.today = new Date();
-    this.updateQueuedPomodoros();
+    this.queueHeaderMapping = this._settingService.pluralsMap.tasks;
+    this.timerMinutes = this._settingService.timerMinutes;
   }
 
   ngOnInit() {
-    // this._tasksService.getTasks();
-    // this.tasks = this._tasksService.taskStore;
-    // this.today = new Date();
-    // this.updateQueuedPomodoros();
+    this.updateQueuedPomodoros();
   }
 
   private updateQueuedPomodoros(): void {
