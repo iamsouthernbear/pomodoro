@@ -4,7 +4,7 @@ h3, p {
 
 table {
   margin: auto;
-  max-width: 760px;
+  max-width: 820px;
 }
 
 .table-btn {
@@ -17,4 +17,13 @@ table {
 
 .btn-default:focus {
   background-color: unset !important;
+  border-color: unset !important;
+}
+
+.btn:focus {
+  border-color: #ccc !important;
+}
+
+* {
+  user-select: none;
 }

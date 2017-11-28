@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { PomodoroTimerComponent } from './components/pomodoro-timer/pomodoro-timer.component';
@@ -15,6 +18,7 @@ import { FormattedTimePipe } from './shared/pipes/formatted-time.pipe';
 import { QueuedOnlyPipe } from './shared/pipes/queued-only.pipe';
 import { TimerWidgetComponent } from './components/timer-widget/timer-widget.component';
 import { TaskTooltipDirective } from './shared/directives/task-tooltip.directive';
+import { TaskEditorComponent } from './components/task-editor/task-editor.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +31,14 @@ import { TaskTooltipDirective } from './shared/directives/task-tooltip.directive
     FormattedTimePipe,
     QueuedOnlyPipe,
     TimerWidgetComponent,
-    TaskTooltipDirective
+    TaskTooltipDirective,
+    TaskEditorComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    AppRoutingModule,
+    RouterModule
   ],
   providers: [
     TaskService,
