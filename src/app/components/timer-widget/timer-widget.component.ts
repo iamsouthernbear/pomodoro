@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from '../../shared/shared';
 import { TaskService } from '../../shared/services/task.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-timer-widget',
@@ -27,8 +27,10 @@ export class TimerWidgetComponent implements OnInit {
     setInterval(() => this.tick(), 1000);
 
     this.route.params.subscribe(params => {
-      const taskIndex = +params['id'];
-      this.taskName = this.taskService.taskStore[taskIndex].name;
+      if (params['id']) {
+        const taskIndex = +params['id'];
+        this.taskName = this.taskService.taskStore[taskIndex].name;
+      }
     });
   }
 

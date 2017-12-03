@@ -38,4 +38,8 @@ export class TaskService {
       },
         error => console.log(error));
   }
+
+  public addTask(task: Task): void {
+    this.taskStore.push(task);
+  }
 }

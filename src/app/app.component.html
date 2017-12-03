@@ -8,7 +8,9 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a routerLink="/tasks" routerLinkActive="router-link-active">Tasks</a></li>
       <li><a routerLink="/timer" routerLinkActive="router-link-active">Timer</a></li>
-      <li><a routerLink="/task/editor" routerLinkActive="router-link-active">Publish Task</a></li>
+      <li *ngIf="userIsLoggedIn"><a routerLink="/task/editor" routerLinkActive="router-link-active">Publish Task</a></li>
+      <li *ngIf="!userIsLoggedIn"><a routerLink="/login" routerLinkActive="router-link-active">Login</a></li>
+      <li *ngIf="userIsLoggedIn"><a href="#" (click)="logout($event)">Logout</a></li>
     </ul>
   </div>
 </nav>

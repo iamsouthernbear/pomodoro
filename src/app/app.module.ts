@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PomodoroTimerComponent } from './components/pomodoro-timer/pomodoro-timer.component';
@@ -13,12 +14,15 @@ import { PomodoroIconsComponent } from './components/pomodoro-icons/pomodoro-ico
 
 import { TaskService } from './shared/services/task.service';
 import { SettingsService } from './shared/services/settings.service';
+import { AuthenticationService } from './services/authentication.service';
+import { CanActivateGuard } from './services/can-activate.guard';
 
 import { FormattedTimePipe } from './shared/pipes/formatted-time.pipe';
 import { QueuedOnlyPipe } from './shared/pipes/queued-only.pipe';
 import { TimerWidgetComponent } from './components/timer-widget/timer-widget.component';
 import { TaskTooltipDirective } from './shared/directives/task-tooltip.directive';
 import { TaskEditorComponent } from './components/task-editor/task-editor.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -32,17 +36,22 @@ import { TaskEditorComponent } from './components/task-editor/task-editor.compon
     QueuedOnlyPipe,
     TimerWidgetComponent,
     TaskTooltipDirective,
-    TaskEditorComponent
+    TaskEditorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     TaskService,
-    SettingsService
+    SettingsService,
+    AuthenticationService,
+    CanActivateGuard
   ],
   bootstrap: [AppComponent]
 })

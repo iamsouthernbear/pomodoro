@@ -1,0 +1,22 @@
+<form [formGroup]="loginForm" class="container" (submit)="authenticate()">
+
+  <h3>This content is password-protected</h3>
+  <p>Please enter your credentials below</p>
+
+  <div class="alert alert-danger" *ngIf="notValidCredentials">
+    Your credentials are not valid!
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Your username" formControlName="username">
+  </div>
+  <p *ngIf="showUsernameHint" class="help-block">That doesn't look like a proper username</p>
+
+  <div class="form-group">
+    <input type="password" class="form-control" placeholder="Your password" formControlName="password">
+  </div>
+
+  <p>
+    <input type="submit" class="btn btn-success" value="authenticate" [disabled]="!loginForm.valid">
+  </p>
+</form>

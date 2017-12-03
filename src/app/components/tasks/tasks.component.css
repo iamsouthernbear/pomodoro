@@ -17,7 +17,6 @@ table {
 
 .btn-default:focus {
   background-color: unset !important;
-  border-color: unset !important;
 }
 
 .btn:focus {
